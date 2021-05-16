@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.jw.viewmodelpractice.MainViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="15dp"
+            android:onClick="@{() -> mainViewModel.plus()}"
+            android:padding="20dp"
+            android:text="더하기" />
+
+        <Button
+            android:id="@+id/subButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="15dp"
+            android:onClick="@{()->mainViewModel.minus()}"
+            android:padding="20dp"
+            android:text="빼기" />
+
+        <TextView
+            android:id="@+id/textview2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/livedata1"
+            android:layout_centerHorizontal="true"
+            android:padding="20dp"
+            android:text="livedata observer 접근"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/livedata2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview2"
+            android:layout_centerHorizontal="true"
+            android:padding="20dp"
+            android:text="1"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="20dp"
+            android:text="livedata 직접 접근"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/livedata1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview1"
+            android:layout_centerHorizontal="true"
+            android:padding="20dp"
+            android:text="@{mainViewModel.number.toString()}"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+</layout>
